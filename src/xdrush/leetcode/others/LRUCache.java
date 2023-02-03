@@ -39,13 +39,13 @@ public class LRUCache {
         cache.addFirst(node);
         return node.val;
     }
-    
+
     public void put(int key, int val) {
         Node node = new Node(key, val);
         if (map.containsKey(key)) {
             cache.remove(map.get(key));
         } else if (capacity == map.size()) {
-            Node last = cache.getLast();
+            Node last = cache.removeLast();
             map.remove(last.key);
         }
 
